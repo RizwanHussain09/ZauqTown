@@ -1,5 +1,6 @@
 import { Flame, Star } from 'lucide-react';
 import { useState } from 'react';
+import { getOptimizedImageUrl } from '../utils/imageOptimizer';
 
 interface MenuItem {
   name: string;
@@ -116,7 +117,7 @@ export default function MenuSection() {
                     <div className="relative bg-[#1a1a1a] border-2 border-[#FFD700]/30 rounded-lg overflow-hidden group-hover:border-[#FFD700] transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFD700]/20 transform group-hover:-translate-y-2 h-full">
                       <div className="relative h-56 overflow-hidden">
                         <img
-                          src={item.image}
+                          src={getOptimizedImageUrl(item.image, { width: 400, height: 224, quality: 80 })}
                           alt={item.name}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />

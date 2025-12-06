@@ -1,4 +1,5 @@
 import { Flame } from 'lucide-react';
+import { getOptimizedImageUrl, getOptimizedBackgroundStyle } from '../utils/imageOptimizer';
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -12,9 +13,10 @@ export default function HeroSection() {
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg)',
-        }}
+        style={getOptimizedBackgroundStyle(
+          'https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg',
+          { width: 1920, height: 1080, quality: 75 }
+        )}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/95 via-[#8B0000]/80 to-[#1a1a1a]/95"></div>
       </div>
@@ -29,7 +31,7 @@ export default function HeroSection() {
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-[#FFD700] to-[#8B0000] rounded-full opacity-30 blur-lg"></div>
             <img
-              src="/486562747_665049279373512_7296266491230121737_n.jpg"
+              src={getOptimizedImageUrl('/486562747_665049279373512_7296266491230121737_n.jpg', { width: 128, height: 128, quality: 85 })}
               alt="Zauq Restaurant Logo"
               className="relative h-32 w-32 object-contain"
             />

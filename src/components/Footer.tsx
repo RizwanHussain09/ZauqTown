@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Mail } from 'lucide-react';
+import { getOptimizedImageUrl } from '../utils/imageOptimizer';
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="/486562747_665049279373512_7296266491230121737_n.jpg"
+                src={getOptimizedImageUrl('/486562747_665049279373512_7296266491230121737_n.jpg', { width: 48, height: 48, quality: 85 })}
                 alt="Zauq Restaurant Logo"
                 className="h-12 w-12 object-contain"
               />

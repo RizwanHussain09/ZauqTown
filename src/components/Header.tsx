@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { getOptimizedImageUrl } from '../utils/imageOptimizer';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Header() {
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-[#FFD700] to-[#8B0000] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur"></div>
               <img
-                src="/486562747_665049279373512_7296266491230121737_n.jpg"
+                src={getOptimizedImageUrl('/486562747_665049279373512_7296266491230121737_n.jpg', { width: 48, height: 48, quality: 85 })}
                 alt="Zauq Restaurant Logo"
                 className="relative h-12 w-12 object-contain group-hover:drop-shadow-lg group-hover:drop-shadow-[#FFD700]"
               />

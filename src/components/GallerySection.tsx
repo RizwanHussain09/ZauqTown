@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { getOptimizedImageUrl } from '../utils/imageOptimizer';
 
 const galleryImages = [
   {
@@ -65,7 +66,7 @@ export default function GallerySection() {
           <div className="absolute -inset-2 bg-gradient-to-r from-[#8B0000]/30 via-[#FFD700]/30 to-[#8B0000]/30 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div className="relative h-[400px] md:h-[600px] overflow-hidden rounded-lg border-4 border-[#FFD700]/30 group-hover:border-[#FFD700] transition-all duration-300">
             <img
-              src={galleryImages[currentIndex].url}
+              src={getOptimizedImageUrl(galleryImages[currentIndex].url, { width: 1200, height: 600, quality: 80 })}
               alt={galleryImages[currentIndex].alt}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -117,7 +118,7 @@ export default function GallerySection() {
               }}
             >
               <img
-                src={image.url}
+                src={getOptimizedImageUrl(image.url, { width: 300, height: 192, quality: 75 })}
                 alt={image.alt}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
