@@ -1,5 +1,6 @@
 import { Award, Heart, Users, ChefHat, TrendingUp, Zap } from 'lucide-react';
 import { useState } from 'react';
+import { getOptimizedImageUrl } from '../utils/imageOptimizer';
 
 export default function AboutSection() {
   const [activeTab, setActiveTab] = useState('story');
@@ -113,7 +114,7 @@ export default function AboutSection() {
               <div className="absolute -inset-4 bg-gradient-to-r from-[#8B0000] to-[#FFD700] opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-500"></div>
               <div className="absolute -inset-2 border-2 border-[#FFD700]/50 rounded-lg group-hover:border-[#FFD700] transition-all duration-500"></div>
               <img
-                src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg"
+                src={getOptimizedImageUrl('https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg', { width: 800, height: 500, quality: 80 })}
                 alt="Restaurant Interior"
                 className="relative rounded-lg shadow-2xl w-full h-[500px] object-cover border-2 border-[#FFD700]/30 group-hover:border-[#FFD700] transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-[#FFD700]/40 transform group-hover:scale-[1.02]"
               />
